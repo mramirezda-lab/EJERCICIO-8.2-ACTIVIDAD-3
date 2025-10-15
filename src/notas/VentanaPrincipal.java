@@ -84,6 +84,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         limpiar.setText("Limpiar");
+        limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarActionPerformed(evt);
+            }
+        });
 
         promedio.setText("jLabel6");
 
@@ -188,6 +193,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         desviación.setText("Desviación estándar = " + String.format("%.2f", desv));
         mayor.setText("Valor mayor = " + String.valueOf(notas.calcularMayor()));
         menor.setText("Valor menor = " + String.valueOf(notas.calcularMenor()));
+        
     }//GEN-LAST:event_calcularActionPerformed
 
     private void campoNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNota1ActionPerformed
@@ -202,28 +208,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNota5ActionPerformed
 
+    private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
+            campoNota1.setText("");
+    campoNota2.setText("");
+    campoNota3.setText("");
+    campoNota4.setText("");
+    campoNota5.setText("");
+
+    promedio.setText("Promedio = ");
+    desviación.setText("Desviación estándar = ");
+    mayor.setText("Valor mayor = ");
+    menor.setText("Valor menor = ");
+
+    campoNota1.requestFocusInWindow();
+    }//GEN-LAST:event_limpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new VentanaPrincipal().setVisible(true));
     }
 
